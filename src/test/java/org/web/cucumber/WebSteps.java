@@ -3,6 +3,8 @@ package org.web.cucumber;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.collections.web.selectors.PageSelector;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +16,22 @@ import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
+@Slf4j
 public class WebSteps {
+
 
     public static WebDriver driver;
 
+//    private final static Logger LOGGER = Logger.getLogger("MyLogger");
+// -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
+    @SneakyThrows
     @Given("I read from data table as List:")
     public void readList(DataTable dataTable) {
         List<String> strings = dataTable.asList();
+        log.info("reading list of strings: {}", strings);
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(strings.get(0), "a", "element [0] error!");
         softAssert.assertEquals(strings.get(1), "b", "element [1] error!");

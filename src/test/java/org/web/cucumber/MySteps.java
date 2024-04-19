@@ -3,7 +3,9 @@ package org.web.cucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lombok.extern.slf4j.Slf4j;
 import org.collections.web.dto.PersonDto;
+import org.collections.web.page.AlloPage;
 import org.collections.web.page.GooglePage;
 import org.collections.web.util.CucumberContainer;
 import org.collections.web.util.DbUtil;
@@ -13,9 +15,19 @@ import java.util.List;
 
 import static org.testng.Assert.assertNotNull;
 
+@Slf4j
 public class MySteps {
 
     public static GooglePage googlePage;
+    public static AlloPage alloUaPage;
+
+    @Given("I load Allo Ua Page")
+    public void loadAlloUaAndHoverOverButton() {
+        alloUaPage.chromeStuff();
+        alloUaPage.loadPage();
+        alloUaPage.hoverOverElement();
+        log.info("DONE!");
+    }
 
 
     @Given("I store group {string} in my DB")

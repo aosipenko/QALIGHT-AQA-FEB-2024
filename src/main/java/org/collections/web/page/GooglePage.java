@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
-public class GooglePage extends AbstractPage{
+public class GooglePage extends AbstractPage {
 
     private static final String COOKIES_FORM_XPATH =
             "//a[contains(@href,'https://policies.google.com/technologies/cookies')]/../../../..//button";
@@ -52,5 +53,11 @@ public class GooglePage extends AbstractPage{
     public List<WebElement> getSearchHeaders() {
         return new WebDriverWait(driver, Duration.ofSeconds(5L))
                 .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//a/h3"), 2));
+    }
+
+    public void actions() {
+        Actions actions = new Actions(driver);
+        actions.keyDown(Keys.ARROW_UP).pause(Duration.ofSeconds(5)).keyUp(Keys.ARROW_UP)
+                .build().perform();
     }
 }
