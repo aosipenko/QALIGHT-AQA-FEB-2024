@@ -50,10 +50,7 @@ public class SeleniumDemo {
                     }
                 }
             } else if (action.equals(GoogleActions.LUCKY_SEARCH)) {
-                googlePage.feelingLucky();
-                System.out.println("Wiki URL: " + wikiPage.getCurrentUrl());
-                wikiPage.navigateBack();
-                System.out.println("Google URL: " + googlePage.getCurrentUrl());
+                System.out.println("main branch changes");
             } else {
                 throw new RuntimeException("No action selected");
             }
