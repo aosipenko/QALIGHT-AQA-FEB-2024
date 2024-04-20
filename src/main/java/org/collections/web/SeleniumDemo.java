@@ -47,7 +47,7 @@ public class SeleniumDemo {
 //                        asd
                         //asdasd
                     }
-                    System.out.println("this is new");
+                    System.out.println("this is new and updated");
                 }
             } else if (action.equals(GoogleActions.LUCKY_SEARCH)) {
                 System.out.println("removed");
