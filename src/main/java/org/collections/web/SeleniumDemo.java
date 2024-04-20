@@ -23,9 +23,6 @@ public class SeleniumDemo {
         WebDriver driver = WebDriverFactory.getDriver();
 
         GooglePage googlePage = new GooglePage(driver);
-        WikiPage wikiPage = new WikiPage(driver);
-
-//        DevTools devTools = (DevTools) driver;
 
         Random random = new Random();
         GoogleActions action;
