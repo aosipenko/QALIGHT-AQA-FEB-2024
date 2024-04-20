@@ -45,6 +45,7 @@ public class SeleniumDemo {
                         System.out.println("Ben found!");
                         break;
                     }
+                    System.out.println("this is new");
                 }
             } else if (action.equals(GoogleActions.LUCKY_SEARCH)) {
                 System.out.println("removed");
