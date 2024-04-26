@@ -1,21 +1,32 @@
 package org.web.cucumber;
 
+import com.beust.ah.A;
+import com.codeborne.selenide.Driver;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebElementCondition;
+import com.codeborne.selenide.impl.PageObjectFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.eo.Se;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.collections.web.selectors.PageSelector;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
+import javax.swing.*;
+import java.security.Key;
 import java.time.Duration;
 import java.util.List;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 
@@ -25,7 +36,7 @@ public class WebSteps {
 
     public static WebDriver driver;
 
-//    private final static Logger LOGGER = Logger.getLogger("MyLogger");
+    //    private final static Logger LOGGER = Logger.getLogger("MyLogger");
 // -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
     @SneakyThrows
     @Given("I read from data table as List:")
@@ -79,5 +90,18 @@ public class WebSteps {
                 .stream()
                 .anyMatch(webElement -> webElement.getText().toUpperCase().contains(text.toUpperCase()));
         Assert.assertTrue(containsText, "Text not found!");
+    }
+
+    @Given("Test iframe")
+    public void smth() {
+        driver.get("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_iframe_height_width");
+        WebElement element = driver.findElement(By.id("runbtn"));
+        element.sendKeys(Keys.CONTROL + "T");
+        Actions a = new Actions(driver);
+        a.keyDown(Keys.CONTROL);
+        a.keyDown("T");
+        a.release();
+        a.build().perform();
+        System.out.println("a");
     }
 }

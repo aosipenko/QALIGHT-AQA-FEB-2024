@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.C;
 import org.collections.web.dto.PersonDto;
 import org.collections.web.page.AlloPage;
 import org.collections.web.page.GooglePage;
@@ -32,7 +33,8 @@ public class MySteps {
 
     @Given("I store group {string} in my DB")
     public void storePersonInDB(String alias) {
-        List<PersonDto> randomPersons = (List<PersonDto>) CucumberContainer.map.get(alias);
+        List<PersonDto> randomPersons = (List<PersonDto>) CucumberContainer.getInstance()
+                .get(alias);
         assertNotNull(randomPersons,
                 "Please use 'request random persons' step before invoking this");
         randomPersons.forEach(p -> DbUtil.storeInDB(p.getInsertSQL()));
@@ -50,13 +52,14 @@ public class MySteps {
 
     @When("I google for person with alias {string}")
     public void googleForRandomPerson(String alias) {
-        googlePage.setSearchText((String) CucumberContainer.map.get(alias));
+        googlePage.setSearchText((String) CucumberContainer.getInstance().get(alias));
         googlePage.performSearch();
     }
 
     @Then("I can see name of person with alias {string} in search results")
     public void validateSearchResultCount(String alias) {
-        String name = (String) CucumberContainer.map.get(alias);
+        String name = (String) CucumberContainer.getInstance().get(alias);
+
         Assert.assertTrue(
                 googlePage.getSearchHeaders()
                         .stream()

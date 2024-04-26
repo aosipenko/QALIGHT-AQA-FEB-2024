@@ -1,7 +1,7 @@
 Feature: Test API DB Google integration
 
-  Scenario: allo ua page test
-    Given File Step
+#  Scenario: allo ua page test
+#    Given File Step
 
 #  @severity=critical
 #  Scenario Outline: Search Random Person in Google
@@ -28,10 +28,5 @@ Feature: Test API DB Google integration
 
   @severity=trivial
   Scenario: Read List and Map
-    Given I read from data table as List:
-    |a|
-    |b|
-    |c|
-    |d|
-    |e|
+    Given Test iframe
 

@@ -13,7 +13,7 @@ public class DbSteps {
         PersonDto randomPerson = PersonDto.getRandomPersonFromDB();
         assertNotNull(randomPerson, "Failed to extract random person from DB");
 
-        CucumberContainer.map.put(alias,
+        CucumberContainer.getInstance().put(alias,
                 randomPerson.getName().getFirst() + " " + randomPerson.getName().getLast());
     }
 }

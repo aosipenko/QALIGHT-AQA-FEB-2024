@@ -13,11 +13,10 @@ import java.util.List;
 
 public class GooglePage extends AbstractPage {
 
+    public final static String GOOGLE_URL = "https://google.com/";
     private static final String COOKIES_FORM_XPATH =
             "//a[contains(@href,'https://policies.google.com/technologies/cookies')]/../../../..//button";
     private static final By cookieButtonsLocator = By.xpath(COOKIES_FORM_XPATH);
-
-    public final static String GOOGLE_URL = "https://google.com/";
 
     public GooglePage(WebDriver driver) {
         super(driver, GOOGLE_URL);

@@ -29,6 +29,6 @@ public class RestApiSteps {
                 .as(ResultsDto.class)
                 .getResults();
         log.info("Storing persons to container: {}", persons);
-        CucumberContainer.map.put(alias, persons);
+        CucumberContainer.getInstance().put(alias, persons);
     }
 }
