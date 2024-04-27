@@ -5,7 +5,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.net.URIBuilder;
-import org.collections.web.dto.ResultsDto;
+import org.web.dto.ResultsDto;
 import org.testng.annotations.Test;
 
 import java.io.IOException;

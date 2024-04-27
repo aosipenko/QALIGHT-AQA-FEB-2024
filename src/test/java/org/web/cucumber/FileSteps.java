@@ -1,7 +1,7 @@
 package org.web.cucumber;
 
 import io.cucumber.java.en.Given;
-import org.collections.web.page.FileBinPage;
+import org.web.page.FileBinPage;
 
 public class FileSteps {
 

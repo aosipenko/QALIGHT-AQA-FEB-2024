@@ -1,18 +1,11 @@
 package org.web.cucumber;
 
-import com.beust.ah.A;
-import com.codeborne.selenide.Driver;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebElementCondition;
-import com.codeborne.selenide.impl.PageObjectFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.eo.Se;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.collections.web.selectors.PageSelector;
+import org.web.selectors.PageSelector;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,8 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-import javax.swing.*;
-import java.security.Key;
 import java.time.Duration;
 import java.util.List;
 
